@@ -16,7 +16,10 @@ namespace TestTaskWebAPI.Controllers
             _clientService = clientService;
         }
 
-        // GET: api/<ClientsController>
+        /// <summary>
+        /// Получает список всех клиентов.
+        /// </summary>
+        /// <returns>List<Client></returns>
         [HttpGet]
         public List<Client> Get()
         {
@@ -25,7 +28,11 @@ namespace TestTaskWebAPI.Controllers
             return tGetClients.Result;
         }
 
-        // GET api/<ClientsController>/5
+        /// <summary>
+        /// Получение клиента с заданным Ид
+        /// </summary>
+        /// <param name="id">Ид клиента</param>
+        /// <returns>Client</returns>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -36,7 +43,11 @@ namespace TestTaskWebAPI.Controllers
             catch { return NotFound(); }
         }
 
-        // POST api/<ClientsController>
+        /// <summary>
+        /// Позволяет добавить нового клиента
+        /// </summary>
+        /// <param name="client">Данные нового клиента</param>
+        /// <returns>200 если все клиент был добавлен, 400 если он добавлен небыл</returns>
         [HttpPost]
         public IActionResult Post([FromBody] ClientDTO client)
         {
@@ -48,13 +59,15 @@ namespace TestTaskWebAPI.Controllers
                 _clientService.AddAsync(c).Wait();
                 return Ok(c);
             }
-            catch (Exception ex) 
-            { 
-                return BadRequest(); 
-            }
+            catch {return BadRequest();}
         }
 
-        // PUT api/<ClientsController>/5
+        /// <summary>
+        /// Изменяет данные клиента
+        /// </summary>
+        /// <param name="id">Ид клиента</param>
+        /// <param name="client">Новые данные</param>
+        /// <returns>204 если все прошло успешно и 400 если произошла ошибка</returns>
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] ClientDTO client)
         {
@@ -70,7 +83,11 @@ namespace TestTaskWebAPI.Controllers
             catch { return BadRequest(); }
         }
 
-        // DELETE api/<ClientsController>/5
+        /// <summary>
+        /// Удаляет клиента
+        /// </summary>
+        /// <param name="id">Ид удаляемого клиента</param>
+        /// <returns>204 если клиент удален, 400 если произошла ошибка</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

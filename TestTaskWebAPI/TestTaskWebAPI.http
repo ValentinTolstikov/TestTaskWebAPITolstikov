@@ -1,6 +1,8 @@
 @TestTaskWebAPI_HostAddress = http://localhost:5214
 
-GET {{TestTaskWebAPI_HostAddress}}/weatherforecast/
+GET {{TestTaskWebAPI_HostAddress}}/api/Clients
 Accept: application/json
-
+###
+GET {{TestTaskWebAPI_HostAddress}}/api/Clients/1
+Accept: application/json
 ###
