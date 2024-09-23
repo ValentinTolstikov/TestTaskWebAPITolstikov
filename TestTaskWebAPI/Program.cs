@@ -24,7 +24,13 @@ namespace TestTaskWebAPI
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                var basePath = AppContext.BaseDirectory;
+
+                var xmlPath = Path.Combine(basePath, "TestTaskWebAPI.xml");
+                options.IncludeXmlComments(xmlPath);
+            });
 
             var app = builder.Build();
 

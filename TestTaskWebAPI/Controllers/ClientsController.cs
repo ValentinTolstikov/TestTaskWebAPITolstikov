@@ -19,7 +19,7 @@ namespace TestTaskWebAPI.Controllers
         /// <summary>
         /// Получает список всех клиентов.
         /// </summary>
-        /// <returns>List<Client></returns>
+        /// <returns>Список клиентов</returns>
         [HttpGet]
         public List<Client> Get()
         {
@@ -32,7 +32,7 @@ namespace TestTaskWebAPI.Controllers
         /// Получение клиента с заданным Ид
         /// </summary>
         /// <param name="id">Ид клиента</param>
-        /// <returns>Client</returns>
+        /// <returns>Клиента с заданным Ид</returns>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
