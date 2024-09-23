@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Core.Entities
 {
@@ -18,6 +19,7 @@ namespace Core.Entities
 
         public int TypeId { get; set; }
 
+        [JsonIgnore]
         public virtual UserType UserType { get; set; }
     }
 }

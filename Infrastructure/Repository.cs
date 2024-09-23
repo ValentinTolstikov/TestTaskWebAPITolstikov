@@ -30,10 +30,10 @@ namespace Infrastructure
                    .ToListAsync();
         }
 
-        public async Task AddAsync(T entity)
+        public Task AddAsync(T entity)
         {
             _dbContext.Set<T>().Add(entity);
-            await _dbContext.SaveChangesAsync();
+            return _dbContext.SaveChangesAsync();
         }
 
         public async Task EditAsync(T entity)

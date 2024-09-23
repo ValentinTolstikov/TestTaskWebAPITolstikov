@@ -8,6 +8,7 @@ namespace Infrastructure
         public UserDBContext(DbContextOptions<UserDBContext> options)
         : base(options)
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

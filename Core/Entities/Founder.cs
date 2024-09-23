@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Core.Entities
 {
@@ -23,6 +24,8 @@ namespace Core.Entities
         public DateTime DateEdit { get; set; }
 
         public int ClientId { get; set; }
+
+        [JsonIgnore]
         public virtual Client Client { get; set; }
     }
 }

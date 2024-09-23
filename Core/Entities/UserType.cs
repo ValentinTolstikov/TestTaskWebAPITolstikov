@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Core.Entities
 {
@@ -15,6 +16,7 @@ namespace Core.Entities
         [Column(TypeName = "nvarchar(250)")]
         public string TypeName { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Client> Users { get; set; }
     }
 }
