@@ -42,7 +42,7 @@ namespace TestTaskWebAPI.Controllers
         {
             Client c = new Client {INN = client.INN,
                                    Name = client.Name,
-                                   TypeId = client.TypeId};
+                                   UserTypeId = client.TypeId};
             try
             {
                 _clientService.AddAsync(c).Wait();
@@ -60,7 +60,7 @@ namespace TestTaskWebAPI.Controllers
         {
             Client c = new Client{INN = client.INN,
                                   Name = client.Name,
-                                  TypeId = client.TypeId};
+                                  UserTypeId = client.TypeId};
             try
             {
                 Task tEdit = _clientService.EditAsync(c, id);

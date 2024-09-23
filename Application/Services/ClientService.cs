@@ -22,7 +22,7 @@ namespace Application.Services
         {
             Task<List<Client>> tClient = _clientRepository.GetAsync(p => p.INN == entity.INN);
             tClient.Wait();
-            Task<UserType> tUserType = _userTypeRepository.GetByIdAsync(entity.TypeId);
+            Task<UserType> tUserType = _userTypeRepository.GetByIdAsync(entity.UserTypeId);
             tUserType.Wait();
 
             entity.DateEdit = DateTime.Now;
@@ -45,7 +45,7 @@ namespace Application.Services
                 throw new UserNotFoundException();
             }
 
-            Task<UserType> tUserType = _userTypeRepository.GetByIdAsync(tClient.Result.TypeId);
+            Task<UserType> tUserType = _userTypeRepository.GetByIdAsync(tClient.Result.UserTypeId);
             tUserType.Wait();
 
             if (tUserType.Result.TypeName == "ЮЛ")
@@ -69,7 +69,7 @@ namespace Application.Services
             if (tClient.Result != null)
             {
                 tClient.Result.DateEdit = DateTime.Now;
-                tClient.Result.TypeId = entity.TypeId;
+                tClient.Result.UserTypeId = entity.UserTypeId;
                 tClient.Result.INN = entity.INN;
                 tClient.Result.Name = entity.Name;
                 tClient.Result.UserType = entity.UserType;
