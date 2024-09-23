@@ -18,8 +18,8 @@ namespace Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<UserType>().HasData(new UserType { TypeName = "ИП" },
-                                                    new UserType { TypeName = "ЮЛ" });
+            modelBuilder.Entity<UserType>().HasData(new UserType (1,"ИП"),
+                                                    new UserType (2,"ЮЛ"));
         }
     }
 }
